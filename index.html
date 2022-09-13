@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator || Mini Project</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">
+        <h1>A Simple Calculator</h1>
+      </div>
+    </div>
+    <div class="toggleBtn">
+      <label for="dark" class="dark">
+        <input type="checkbox" id="dark">
+        <i></i>
+      </label>
+    </div>
+    <div class="container">
+      <div class="calculator">
+        <div class="buttons">
+          <h2 id="value">0</h2>
+          <span id="clear">Clear</span>
+          <span>/</span>
+          <span>*</span>
+          <span>7</span>
+          <span>8</span>
+          <span>9</span>
+          <span>-</span>
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+          <span id="plus">+</span>
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>0</span>
+          <span>00</span>
+          <span>.</span>
+          <span id="equal">=</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let button = document.querySelector(".buttons");
+      let btn = document.querySelectorAll("span");
+      let value = document.querySelector("#value");
+
+      for (let i = 0; i < btn.length; i++) {
+        btn[i].addEventListener("click", function () {
+          if (this.innerHTML == "=") {
+            value.innerHTML = eval(value.innerHTML);
+          } else if (this.innerHTML == "Clear") {
+            value.innerHTML = "";
+          } else {
+            value.innerHTML += this.innerHTML;
+          }
+        });
+      }
+
+      document.querySelector('label.dark i').addEventListener('click',function(){
+        let body = document.querySelector('body')
+        if(!body.classList.contains('dark')){
+            body.classList.add('dark')
+        }else{
+            body.classList.remove('dark')
+        }
+      })
+    </script>
+  </body>
+</html>
